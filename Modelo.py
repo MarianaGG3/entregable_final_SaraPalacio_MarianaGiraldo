@@ -33,6 +33,11 @@ class Paciente:
         e=verEdad
         dicc_pacientes[c] =[n,a,e]
 
-    def verificarId(self,c):
-        if self.__id not in dicc_pacientes:
-            return c in dicc_pacientes
+    def verificarUsuario(self,c):
+
+        if usuario=="admin123" and contrasena=="contrasena123":
+            print("usuario ingresado correctamente")
+        else:
+            print("el usuario ingresado es incorrecto")
+
+        

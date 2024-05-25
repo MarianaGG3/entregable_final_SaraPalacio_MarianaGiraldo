@@ -10,4 +10,22 @@ class VentanaIngreso(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         loadUi('login.ui',self)
-        self.setup()
+        
+        self.validarUsuarioButton.clicked.connect(self.validar_usuario)
+        self.validarContrasenaButton.clicked.connect(self.validar_contrasena)
+        self.usuario_valido = False
+        self.contrasena_valida = False
+
+    def validar_usuario(self):
+        usuario = self.usuarioLineEdit.text()
+
+        if usuario == "admin123":
+            self.usuario_valido = True
+            QMessageBox.information(self,"Usuario correcto")
+        else:
+            self.usuario_valido = False
+            QMessageBox.critical(self, "Usuario incorrecto. Por favor, intente de nuevo.")
+        
+        self.verificar_acceso()
+
+    
