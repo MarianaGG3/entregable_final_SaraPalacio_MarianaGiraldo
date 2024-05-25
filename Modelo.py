@@ -1,4 +1,7 @@
+
+dicc_pacientes={}
 class Paciente:
+    datos_paciente=[]
     def __init__(self):
         self.__nombre=""
         self.__apellido=""
@@ -22,3 +25,14 @@ class Paciente:
         self.__edad = e
     def asignarId(self,c):
         self.__id = c
+
+    def AgregarPaciente(self,c,n,a,e):
+        c=verCedula
+        n=verNombre
+        a=verApellido
+        e=verEdad
+        dicc_pacientes[c] =[n,a,e]
+
+    def verificarId(self,c):
+        if self.__id not in dicc_pacientes:
+            return c in dicc_pacientes
