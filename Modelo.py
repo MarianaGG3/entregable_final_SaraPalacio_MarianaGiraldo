@@ -33,11 +33,5 @@ class Paciente:
         e=verEdad
         dicc_pacientes[c] =[n,a,e]
 
-    def verificarUsuario(self,c):
-
-        if usuario=="admin123" and contrasena=="contrasena123":
-            print("usuario ingresado correctamente")
-        else:
-            print("el usuario ingresado es incorrecto")
-
+    
         
