@@ -11,10 +11,10 @@ class VentanaIngreso(QDialog):
         super().__init__(parent)
         loadUi('login.ui',self)
         
-        self.validarUsuarioButton.clicked.connect(self.validar_usuario)
-        self.validarContrasenaButton.clicked.connect(self.validar_contrasena)
-        self.usuario_valido = False
-        self.contrasena_valida = False
+        self.usuario.clicked.connect(self.validar_usuario)
+        self.contrasena.clicked.connect(self.validar_contrasena)
+        # self.usuario_valido = False
+        # self.contrasena_valida = False
 
     def validar_usuario(self):
         usuario = self.usuarioLineEdit.text()
