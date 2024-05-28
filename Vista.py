@@ -43,3 +43,6 @@ class VentanaDatosPac(QDialog):
 
         #def validarpac(self):
             #pass
+
+class main(QMainWindow):
+    pass

@@ -1,4 +1,4 @@
-
+import json
 dicc_pacientes={}
 class Paciente:
     datos_paciente=[]
@@ -33,5 +33,32 @@ class Paciente:
         e=verEdad
         dicc_pacientes[c] =[n,a,e]
 
+class PacienteDato:
+    def __init__(self,ruta):
+        self.ruta= ruta
+        self.load_data()
+
+    def load_data(self):
+        try:
+            with open(self.ruta, 'r') as file:
+                self.paciente= json.load(file)
+        except FileNotFoundError:
+            self.paciente=[]
+
+    def salvar_datos(self):
+        with open(self.ruta, 'w') as file:
+            json.dump([paciente.__dict__ for paciente in self.paciente], file)
+
+    def añadir_paciente(self,paciente):
+        if any(p['id']== paciente.id for p in self.paciente):
+            return False 
+        self.paciente.append(paciente.__dict__)
+        self.salvar_datos()
+        return True
     
+    def eliminar_paciente(self,id):
+        self.paciente=[p for p in self.paciente if p['id']!= id]
+        self.salvar_datos()
         
+    def buscar_paciente(self, buscar):
+        return [Paciente(**p) for p in self.paciente if p['nombre'].lower().startswith(buscar.lower())]
