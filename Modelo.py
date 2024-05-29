@@ -26,12 +26,12 @@ class Paciente:
     def asignarId(self,c):
         self.__id = c
 
-    def AgregarPaciente(self,c,n,a,e):
-        c=verCedula
-        n=verNombre
-        a=verApellido
-        e=verEdad
-        dicc_pacientes[c] =[n,a,e]
+    #def AgregarPaciente(self,c,n,a,e):
+     #   c=verCedula
+      #  n=verNombre
+       # a=verApellido
+        #e=verEdad
+       # dicc_pacientes[c] =[n,a,e]
 
 class PacienteDato:
     def __init__(self,ruta):
