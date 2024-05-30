@@ -1,37 +1,40 @@
+import json
 
-dicc_pacientes={}
-class Paciente:
-    datos_paciente=[]
-    def __init__(self):
-        self.__nombre=""
-        self.__apellido=""
-        self.__edad=int
-        self.__id=int
 
-    def verNombre(self):
-        return self.__nombre
-    def verApellido(self):
-        return self.__apellido
-    def verEdad(self):
-        return self.__edad
-    def verId(self):
-        return self.__id
+class PacienteDato:
+    def __init__(self,ruta='datos.json'):
+        self.ruta= ruta
+        self.load_data()
+
+    def load_data(self):
+        try:
+            with open(self.ruta, 'r') as file:
+                self.paciente= json.load(file)
+        except FileExistsError:
+            self.paciente=[]
+            print('no existe')
+            
+
+    def salvar_datos(self):
+        with open(self.ruta, 'w') as file:
+            json.dump(self.paciente, file, indent=4)
+
+    def añadir_paciente(self,paciente: dict):
+        if not any(p['id'] == paciente['id'] for p in self.paciente):
+            self.paciente.append(paciente)
+            self.salvar_datos()
+            return True
+        return False
     
-    def asignarNombre(self,n):
-        self.__nombre = n
-    def asignarApellido(self,a):
-        self.__apellido = a
-    def asignarEdad(self,e):
-        self.__edad = e
-    def asignarId(self,c):
-        self.__id = c
-
-    def AgregarPaciente(self,c,n,a,e):
-        c=verCedula
-        n=verNombre
-        a=verApellido
-        e=verEdad
-        dicc_pacientes[c] =[n,a,e]
-
-    
+    def eliminar_paciente(self,paciente_id: str):
+        initLen= len(self.paciente)
+        self.paciente=[p for p in self.paciente if p['id']!= paciente_id]
+        self.salvar_datos()
+        if initLen == len(self.paciente):
+            return 0
+        else:
+            return 1
         
+    def buscar_paciente(self, pacientes_nombre: str): 
+        pacientes_nombre=pacientes_nombre.lower().strip()
+        return [p for p in self.paciente if p['nombre'].lower().strip().startswith(pacientes_nombre)]
