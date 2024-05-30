@@ -1,5 +1,5 @@
 import json
-import os
+
 
 class PacienteDato:
     def __init__(self,ruta='datos.json'):
@@ -13,11 +13,6 @@ class PacienteDato:
         except FileExistsError:
             self.paciente=[]
             print('no existe')
-        #if os.path.exists(self.ruta):
-         #       with open(self.ruta, 'r') as file:
-          #          self.paciente= json.load(file)
-        #else:
-         #   self.paciente=[]
             
 
     def salvar_datos(self):
@@ -42,5 +37,4 @@ class PacienteDato:
         
     def buscar_paciente(self, pacientes_nombre: str): 
         pacientes_nombre=pacientes_nombre.lower().strip()
-        #return [Paciente(**p) for p in self.paciente if p['nombre'].lower().startswith(buscar.lower())]
         return [p for p in self.paciente if p['nombre'].lower().strip().startswith(pacientes_nombre)]

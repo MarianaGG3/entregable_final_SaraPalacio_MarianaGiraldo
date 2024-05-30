@@ -14,20 +14,17 @@ class VentanaIngreso(QDialog):
         self.setup()
 
     def setup(self):
-        #definir lo que los botones van hacer
+        
         self.ingresar.clicked.connect(self.validar_login)
         self.contrasena.setEchoMode(QLineEdit.Password)
-        # self.label1=QLabel(None, self)
-        # fuente = QFont()
-        # fuente.setPointSize(14)  
-        # self.label1.setFont(fuente)
+        
         
 
     
     def validar_login(self):
         usuario = self.usuario.text()
         contrasena = self.contrasena.text()
-        #vista_=VentanaIngreso()
+        
         if usuario == "admin123" and contrasena == "contrasena123":
             self.ventana=VentanaDatosPac()
             self.ventana.show()
@@ -40,12 +37,12 @@ class VentanaDatosPac(QDialog):
     def __init__(self):
         super(VentanaDatosPac, self).__init__()
         loadUi('ventana_datos.ui',self)
-        #self.ventanaing= parent
+        
         self.controller=coordinador()
         self.setup()
 
     def setup(self):
-        #validador 
+       
         self.ingreso.clicked.connect(self.agregar_patient)
         self.busqueda.clicked.connect(self.buscar_patient)
         self.tabla.verticalHeader().setVisible(False)
