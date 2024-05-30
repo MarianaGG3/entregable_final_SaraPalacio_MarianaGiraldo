@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>373</height>
+    <width>573</width>
+    <height>653</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -118,10 +118,10 @@
     <string>Ingrese los datos del paciente</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="agregar">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>90</x>
      <y>240</y>
      <width>111</width>
      <height>41</height>

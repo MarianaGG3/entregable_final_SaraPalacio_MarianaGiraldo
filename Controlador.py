@@ -1,30 +1,22 @@
-from Vista import *
-from Modelo import *
-import sys
 
-data_base='datos.json'
+from Modelo import *
+
+
 
 class coordinador:
     def __init__(self):
-        self.database= PacienteDato(data_base)
+        self.database= PacienteDato()
 
-    def add_patient(self, name, last_name, age, id):
-        patient = patient(name, last_name, age, id)
-        return self.database.añadir_paciente(patient)
+    def add_patient(self, data:dict):
+        return self.database.añadir_paciente(data)
 
-    def remove_patient(self, id):
+    def del_patient(self, id: str):
         self.database.eliminar_paciente(id)
 
-    def search_patients(self, search):
-        return self.database.buscar_paciente(search)
+    def search_patients(self, initName: str = ''):
+        return self.database.buscar_paciente(initName)
+    
+
 
     
 
-def main():
-    app = QApplication(sys.argv)
-    vista_=VentanaIngreso()
-    vista_.show()
-    sys.exit(app.exec_())
-
-if __name__ == '__main__':
-    main()
