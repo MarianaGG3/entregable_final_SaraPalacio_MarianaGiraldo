@@ -16,5 +16,11 @@
         "nombre": "mariana",
         "apellido": "giraldo",
         "edad": "20"
+    },
+    {
+        "id": "122",
+        "nombre": "diego",
+        "apellido": "rebolledo",
+        "edad": "23"
     }
 ]
