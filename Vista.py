@@ -17,6 +17,7 @@ class VentanaIngreso(QDialog):
         
         self.ingresar.clicked.connect(self.validar_login)
         self.contrasena.setEchoMode(QLineEdit.Password)
+        self.salir.clicked.connect(self.close)
         
         
 
@@ -53,7 +54,7 @@ class VentanaDatosPac(QDialog):
         self.listPaciente= self.controller.search_patients()
 
     def buscar_patient(self):
-        buscar=self.buscar.text()
+        buscar=self.buscar.text().lower().strip()
         self.listPaciente=self.controller.search_patients(buscar)
         self.tableUpdate()
 

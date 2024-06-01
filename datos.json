@@ -1,11 +1,5 @@
 [
     {
-        "id": "1",
-        "nombre": "Jose",
-        "apellido": "Toro",
-        "edad": "25"
-    },
-    {
         "id": "13",
         "nombre": "sara",
         "apellido": "palacio",
