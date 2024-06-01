@@ -19,8 +19,6 @@ class VentanaIngreso(QDialog):
         self.contrasena.setEchoMode(QLineEdit.Password)
         self.salir.clicked.connect(self.close)
         
-        
-
     
     def validar_login(self):
         usuario = self.usuario.text()
@@ -87,6 +85,10 @@ class VentanaDatosPac(QDialog):
                 self.nombre.setText('')
                 self.apellido.setText('')
                 self.edad.setText('')
+                self.ventana=VentanaDatosPac()
+                self.ventana.show()
+                #self.close()
+
     
     def tableUpdate(self):
         self.tabla.setRowCount(len(self.listPaciente)) 
