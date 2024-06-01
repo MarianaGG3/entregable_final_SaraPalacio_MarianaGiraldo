@@ -26,15 +26,17 @@ class PacienteDato:
             return True
         return False
     
-    def eliminar_paciente(self,paciente_id: str):
+
+
+    def eliminar_paciente(self, paciebnte_id: str):  # Cambiar aquí
         initLen= len(self.paciente)
-        self.paciente=[p for p in self.paciente if p['id']!= paciente_id]
+        self.paciente=[p for p in self.paciente if p['id']!= paciebnte_id]  # Cambiar aquí también
         self.salvar_datos()
         if initLen == len(self.paciente):
             return 0
         else:
             return 1
-        
+
     def buscar_paciente(self, pacientes_nombre: str):
         pacientes_nombre = pacientes_nombre.lower().strip()
         return [p for p in self.paciente if pacientes_nombre in p['nombre'].lower().strip() or pacientes_nombre in p['apellido'].lower().strip()]

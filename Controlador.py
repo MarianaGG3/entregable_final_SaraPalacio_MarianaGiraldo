@@ -10,7 +10,7 @@ class coordinador:
         self.database= PacienteDato()
 
     def add_patient(self, data:dict):
-        return self.database.añadir_paciente(data)
+        return self.database.anadir_paciente(data)
 
     def del_patient(self, id: str):
         self.database.eliminar_paciente(id)
